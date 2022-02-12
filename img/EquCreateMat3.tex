@@ -1,0 +1,41 @@
+%
+% Création de la matrice partie 3
+% explicitaion des coefficients
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Création de la matrice des coefficients partie 3, explicitation des coefficients
+Destiné pour produire un svg
+A compiler avec : latex EquCreateMat3.tex && dvisvgm -n EquCreateMat3.dvi
+\end{comment}
+
+\geometry{
+  textheight=6cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \begin{equation*}
+      B_{i}^{n}\left(t\right) = \sum_{k=0}^{n} C_{i, k}^{n} t^{k} \quad \text{avec} \quad \\
+      \left \{
+        \begin{array}{ll}
+          C_{i, k}^{n} & = 0 \quad \text{si} \quad 0 \leq k < i \\
+          C_{i, k}^{n} & = {\left(-1\right)}^{k-i} \frac{n!}{i! {\left({k-i}\right)!} {\left({n-k}\right)!}} \quad \text{si} \quad i \leq k \leq n \\
+        \end{array}
+      \right.
+  \end{equation*}
+
+\end{document}

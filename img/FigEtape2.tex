@@ -1,0 +1,75 @@
+%
+% Figure Etape 2 construction du Quart de Nonante
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Construction du quart de nonante, étape 2
+Destiné pour produire un svg
+A compiler avec : latex FigEtape2.tex && dvisvgm -n FigEtape2.dvi
+\end{comment}
+
+\geometry{
+  textheight=4cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \begin{tikzpicture}[scale=.5]
+    \draw[step=1cm,blue,very thin] (-0.9,-0.9) grid (28.5,6.1); % grid
+    \draw[thick,->] (0,0) -- (25,0) node[right] {Largeur}; % axe X
+    \draw[thick,->] (0,0) -- (0,5.5) node[right] {Bouge}; % axe Y
+    \draw[red,fill=red] (0,4) circle (4pt) node[left,color=black] {$b$}; % sommet du bouge
+    \draw[red,fill=red] (24,0) circle (4pt) node[below,color=black] {$l$}; % point demi-largeur
+
+    % segments initiaux
+    \draw[blue,thick] (1cm,0cm) -- (1.5307cm,3.6955cm); % premier segment
+    \draw[blue,thick] (2cm,0cm) -- (2.8284cm,2.8284cm); % second segment
+    \draw[blue,thick] (3cm,0cm) -- (3.6955cm,1.5307cm); % troisième segment
+
+    % découpage horizontale de la demi largeur en 4 parties
+    \draw[green,ultra thick] (6cm-5pt,5pt) -- (6cm+5pt,-5pt); % point 1
+    \draw[green,ultra thick] (6cm+5pt,5pt) -- (6cm-5pt,-5pt);
+    \draw[green,ultra thick] (12cm-5pt,5pt) -- (12cm+5pt,-5pt); % point 2
+    \draw[green,ultra thick] (12cm+5pt,5pt) -- (12cm-5pt,-5pt);
+    \draw[green,ultra thick] (18cm-5pt,5pt) -- (18cm+5pt,-5pt); % point 3
+    \draw[green,ultra thick] (18cm+5pt,5pt) -- (18cm-5pt,-5pt);
+
+    \draw[thick] (3cm-2pt,-5pt) -- (3cm-2pt,+5pt); % espacement (0,0) - point 1
+    \draw[thick] (3cm+2pt,-5pt) -- (3cm+2pt,+5pt);
+    \draw[thick] (9cm-2pt,-5pt) -- (9cm-2pt,+5pt); % espacement point 1 - point 2
+    \draw[thick] (9cm+2pt,-5pt) -- (9cm+2pt,+5pt);
+    \draw[thick] (15cm-2pt,-5pt) -- (15cm-2pt,+5pt); % espacement point 2 - point 3
+    \draw[thick] (15cm+2pt,-5pt) -- (15cm+2pt,+5pt);
+    \draw[thick] (21cm-2pt,-5pt) -- (21cm-2pt,+5pt); % espacement point 3 - (4,0)
+    \draw[thick] (21cm+2pt,-5pt) -- (21cm+2pt,+5pt);
+
+    % translations
+    \draw[thick,->] (1.5307cm+10pt,3.6955cm) -- (1.5307cm+6cm-1cm-10pt,3.6955cm); % première translation
+    \draw[thick,->] (2.8284cm+10pt,2.8284cm) -- (2.8284cm+12cm-2cm-10pt,2.8284cm); % seconde translation
+    \draw[thick,->] (3.6955cm+10pt,1.5307cm) -- (3.6955cm+18cm-3cm-10pt,1.5307cm); % troisème transalation
+
+    % segments finaux
+    \draw[blue,thick] (1cm+6cm-1cm,0cm) -- (1.5307cm+6cm-1cm,3.6955cm); % premier segment
+    \draw[red,fill=red] (1.5307cm+6cm-1cm,3.6955cm) circle (4pt);
+    \draw[blue,thick] (2cm+12cm-2cm,0cm) -- (2.8284cm+12cm-2cm,2.8284cm); % second segment
+    \draw[red,fill=red] (2.8284cm+12cm-2cm,2.8284cm) circle (4pt);
+    \draw[blue,thick] (3cm+18cm-3cm,0cm) -- (3.6955cm+18cm-3cm,1.5307cm); % troisième segment
+    \draw[red,fill=red] (3.6955cm+18cm-3cm,1.5307cm) circle (4pt);
+
+  \end{tikzpicture}
+
+\end{document}

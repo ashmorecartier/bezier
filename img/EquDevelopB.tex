@@ -1,0 +1,46 @@
+%
+% Developpement des coefficients de Bernstein
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Developpement des coefficients de Bernstein
+Destiné pour produire un svg
+A compiler avec : latex EquDevelopB.tex && dvisvgm -n EquDevelopB.dvi
+\end{comment}
+
+\geometry{
+  textheight=5.2cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \centerline{$\qquad$ En utilisant le développement de ${\left({1-t}\right)}^{k}$:}
+
+  \begin{equation*}
+    {\left({1-t}\right)}^{k} = \sum_{j=0}^{k} {{\left({-1}\right)}^{j} \binom{k}{j} {t}^{j}}
+  \end{equation*}
+
+  \centerline{$\qquad$ On peut réécrire le coefficient de Bernstein ($B$).}
+
+  \begin{equation*}
+    \begin{split}
+      {B}_{i}^{n} {\left({t}\right)} & = \sum_{j=0}^{n-i} {{\left({-1}\right)}^{j}} {\binom{n}{i}} {\binom{n-i}{j}} {t^{i+j}} \quad \text{puis} \\
+      {B}_{i}^{n} {\left({t}\right)} & = \sum_{j=0}^{n-i} {{\left({-1}\right)}^{j}} {\frac{n!}{{i!}{j!}{\left({n-\left({i+j}\right)}\right)!}}} {{t}^{i+j}} \\
+    \end{split}
+  \end{equation*}
+
+\end{document}

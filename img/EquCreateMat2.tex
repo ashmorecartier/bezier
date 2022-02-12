@@ -1,0 +1,35 @@
+%
+% Création de la matrice partie 2
+% Ajout de coefficients nuls
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Création de la matrice des coefficients partie 2, ajout de coefficients nuls
+Destiné pour produire un svg
+A compiler avec : latex EquCreateMat2.tex && dvisvgm -n EquCreateMat2.dvi
+\end{comment}
+
+\geometry{
+  textheight=6cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \begin{equation*}
+    0.{t}^{k} \quad \text{(cad 0)} \quad \text{pour} \quad 0 \leq k < i \quad \text{(comprendre que l'on ne fait rien si i = 0)}
+  \end{equation*}
+
+\end{document}

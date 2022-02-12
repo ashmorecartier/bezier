@@ -1,0 +1,80 @@
+%
+% Figure Etape 1 construction du Quart de Nonante
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Construction du quart de nonante, étape 1
+Destiné pour produire un svg
+A compiler avec : latex FigEtape1.tex && dvisvgm -n FigEtape1.dvi
+\end{comment}
+
+\geometry{
+  textheight=4cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \begin{tikzpicture}[scale=.5]
+    \draw[step=1cm,blue,very thin] (-0.9,-0.9) grid (28.5,6.1); % grid
+    \draw[thick,->] (0,0) -- (25,0) node[right] {Largeur}; % axe X
+    \draw[thick,->] (0,0) -- (0,5.5) node[right] {Bouge}; % axe Y
+    \draw[red,fill=red] (0,4) circle (4pt) node[left,color=black] {$b$}; % sommet du bouge
+    \draw[red,fill=red] (24,0) circle (4pt) node[below,color=black] {$l$}; % point demi-largeur
+
+    \draw[red,thick] (4,0) arc (0:90:4); % quart de cercle
+
+    % découpage horizontale en 4 parties
+    \draw[green,ultra thick] (1cm-5pt,5pt) -- (1cm+5pt,-5pt); % point 1
+    \draw[green,ultra thick] (1cm+5pt,5pt) -- (1cm-5pt,-5pt);
+    \draw[green,ultra thick] (2cm-5pt,5pt) -- (2cm+5pt,-5pt); % point 2
+    \draw[green,ultra thick] (2cm+5pt,5pt) -- (2cm-5pt,-5pt);
+    \draw[green,ultra thick] (3cm-5pt,5pt) -- (3cm+5pt,-5pt); % point 3
+    \draw[green,ultra thick] (3cm+5pt,5pt) -- (3cm-5pt,-5pt);
+
+    \draw[thick] (0.5cm-2pt,-5pt) -- (0.5cm-2pt,+5pt); % espacement (0,0) - point 1
+    \draw[thick] (0.5cm+2pt,-5pt) -- (0.5cm+2pt,+5pt);
+    \draw[thick] (1.5cm-2pt,-5pt) -- (1.5cm-2pt,+5pt); % espacement point 1 - point 2
+    \draw[thick] (1.5cm+2pt,-5pt) -- (1.5cm+2pt,+5pt);
+    \draw[thick] (2.5cm-2pt,-5pt) -- (2.5cm-2pt,+5pt); % espacement point 2 - point 3
+    \draw[thick] (2.5cm+2pt,-5pt) -- (2.5cm+2pt,+5pt);
+    \draw[thick] (3.5cm-2pt,-5pt) -- (3.5cm-2pt,+5pt); % espacement point 3 - (4,0)
+    \draw[thick] (3.5cm+2pt,-5pt) -- (3.5cm+2pt,+5pt);
+
+    % découpage du quart de cercle en 4 parties
+    \draw[very thin] (0,0) -- (2.2961cm,5.5433cm); % point 1
+    \draw[green,ultra thick] (1.5307cm-5pt,3.6955cm+5pt) -- (1.5307cm+5pt,3.6955cm-5pt);
+    \draw[green,ultra thick] (1.5307cm+5pt,3.6955cm+5pt) -- (1.5307cm-5pt,3.6955cm-5pt);
+    \draw[very thin] (0,0) -- (4.2426cm,4.2426cm); % point 2
+    \draw[green,ultra thick] (2.8284cm-5pt,2.8284cm+5pt) -- (2.8284cm+5pt,2.8284cm-5pt);
+    \draw[green,ultra thick] (2.8284cm+5pt,2.8284cm+5pt) -- (2.8284cm-5pt,2.8284cm-5pt);
+    \draw[very thin] (0,0) -- (5.5433cm,2.2961cm); % point 3
+    \draw[green,ultra thick] (3.6955cm-5pt,1.5307cm+5pt) -- (3.6955cm+5pt,1.5307cm-5pt);
+    \draw[green,ultra thick] (3.6955cm+5pt,1.5307cm+5pt) -- (3.6955cm-5pt,1.5307cm-5pt);
+
+    \draw[thick] (3.7270,0.7413) -- (4.1193,0.8194); % espacement (4,0) - point 1
+    \draw[thick] (3.1596,2.1112) -- (3.4922,2.3334); % espacement point 1 - point 2
+    \draw[thick] (2.1112,3.1596) -- (2.3334,3.4922); % espacement point 2 - point 3
+    \draw[thick] (0.7413,3.7270) -- (0.8194,4.1193); % espacement point 3 - (0,4)
+
+    % segments
+    \draw[blue,thick] (1cm,0cm) -- (1.5307cm,3.6955cm); % premier segment
+    \draw[blue,thick] (2cm,0cm) -- (2.8284cm,2.8284cm); % second segment
+    \draw[blue,thick] (3cm,0cm) -- (3.6955cm,1.5307cm); % troisième segment
+
+  \end{tikzpicture}
+
+\end{document}

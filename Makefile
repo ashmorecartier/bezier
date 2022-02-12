@@ -1,0 +1,6 @@
+SUBDIRS := img
+
+$(SUBDIRS): FORCE
+	$(MAKE) -C $@
+
+FORCE:

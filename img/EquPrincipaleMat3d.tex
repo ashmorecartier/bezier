@@ -1,0 +1,50 @@
+%
+% Equation principale de la courbe paramétrique de Bezier
+% Version Matricielle pour un exemple en 3D
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Equation principale de la courbe paramétrique de Bezier, Représentation matricelle en dimension 3
+Destiné pour produire un svg
+A compiler avec : latex EquPrincipaleMat3d.tex && dvisvgm -n EquPrincipaleMat3d.dvi
+\end{comment}
+
+\geometry{
+  textheight=3.5cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \begin{equation*}
+    \begin{bmatrix}
+      \mathscr{B}_{x}{\left(t_{0}\right)} & \mathscr{B}_{y}{\left(t_{0}\right)} & \mathscr{B}_{z}{\left(t_{0}\right)}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      B_{0}^{n}\left(t_{0}\right) & \cdots & B_{i}^{n}\left(t_{0}\right) & \cdots & B_{n}^{n}\left(t_{0}\right)
+    \end{bmatrix}
+    .
+    \begin{bmatrix}
+      {P_{x}}_{0} & {P_{y}}_{0} & {P_{z}}_{0} \\
+      \vdots & \vdots & \vdots \\
+      {P_{x}}_{i} & {P_{y}}_{i} & {P_{z}}_{i} \\
+      \vdots & \vdots & \vdots \\
+      {P_{x}}_{n} & {P_{y}}_{n} & {P_{z}}_{n}
+    \end{bmatrix}
+  \end{equation*}
+
+\end{document}

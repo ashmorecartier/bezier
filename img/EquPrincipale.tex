@@ -1,0 +1,43 @@
+%
+% Equation principale de la courbe paramétrique de Bezier
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{interval}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Equation principale de la courbe paramétrique de Bezier
+Destiné pour produire un svg
+A compiler avec : latex EquPrincipale.tex && dvisvgm -n EquPrincipale.dvi
+\end{comment}
+
+\geometry{
+  textheight=4.9cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \centerline{$\qquad$ Avec ${n+1}, {n} \geq 1$ points donnés ${P}_{i} \quad {i}\in\interval[scaled]{0}{n}$}
+
+  \centerline{$\qquad$ Les points ${P}_{i}$ sont appelés points de contrôle, les ${B}_{i}^{n}$ sont appelés polynômes de Berstein.}
+
+  \begin{equation*}
+    \begin{split}
+      \mathscr{B}\left({t}\right) & = \sum_{i=0}^{n} {{B}_{i}^{n}\left(t\right) {P}_{i}} \quad {t}\in\interval[scaled]{0}{1} \quad \text{avec} \\
+      {B}_{i}^{n}\left({t}\right) & = \binom{n}{i}t^{i}{\left({1-t}\right)}^{n-i} \quad \text{et} \quad {\binom{n}{i} = \frac{n!}{\left(n-i\right)!i!}}
+    \end{split} 
+  \end{equation*}
+
+\end{document}

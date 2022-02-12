@@ -1,0 +1,60 @@
+%
+% Equation définitive de la courbe paramétrique de Bezier sous forme matricielle
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Equation définitive de la courbe paramétrique de Bezier sous forme matricielle
+Destiné pour produire un svg
+A compiler avec : latex EquDefinitive.tex && dvisvgm -n EquDefinitive.dvi
+\end{comment}
+
+\geometry{
+  textheight=4.9cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \begin{equation*}
+    \begin{bmatrix}
+      \mathscr{B}{\left(t\right)}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      {t}^{0} & {t}^{1} & \cdots & {t}^{n}
+    \end{bmatrix}
+    .
+    \begin{bmatrix}
+      {C}_{0,0}^{n}   &             0   & \cdots & 0                 &             0 \\
+      {C}_{0,1}^{n}   & {C}_{1,1}^{n}   & \cdots & 0                 &             0 \\
+      \vdots          & \vdots          & \vdots & \vdots            &        \vdots \\
+      {C}_{0,n-1}^{n} & {C}_{1,n-1}^{n} & \cdots & {C}_{n-1,n-1}^{n} &             0 \\
+      {C}_{0,n}^{n}   & {C}_{1,n}^{n}   & \cdots & {C}_{n-1,n}^{n}   & {C}_{n,n}^{n}
+    \end{bmatrix}
+    .
+    \begin{bmatrix}
+      {P}_{0} \\
+      \vdots \\
+      {P}_{i} \\
+      \vdots \\
+      {P}_{n}
+    \end{bmatrix}
+  \end{equation*}
+  \begin{equation*}
+    \quad \text{avec} \quad C_{i, k}^{n} = {\left(-1\right)}^{k-i} {\frac{n!}{i!\left({k-i}\right)!\left({n-k}\right)!}} \quad \text{si} \quad i \leq k \leq n
+  \end{equation*}
+
+\end{document}

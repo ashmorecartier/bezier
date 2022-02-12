@@ -1,0 +1,46 @@
+%
+% Figure Etape 3 construction du Quart de Nonante
+%
+
+\documentclass{amsart}
+
+%%%<
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{verbatim}
+%%%>
+
+\begin{comment}
+:Title: Construction du quart de nonante, étape 3
+Destiné pour produire un svg
+A compiler avec : latex FigEtape3.tex && dvisvgm -n FigEtape3.dvi
+\end{comment}
+
+\geometry{
+  textheight=4cm
+}
+
+\begin{document}
+
+  \pagestyle{empty}
+  \pagenumbering{gobble}
+
+  \begin{tikzpicture}[scale=.5]
+    \draw[step=1cm,blue,very thin] (-0.9,-0.9) grid (28.5,6.1); % grid
+    \draw[thick,->] (0,0) -- (25,0) node[right] {Largeur}; % axe X
+    \draw[thick,->] (0,0) -- (0,5.5) node[right] {Bouge}; % axe Y
+
+    \draw[red,fill=red] (0,4) circle (4pt) node[left,color=black] {$b$}; % sommet du bouge
+    \draw[red,fill=red] (1.5307cm+6cm-1cm,3.6955cm) circle (4pt); % point 1
+    \draw[red,fill=red] (2.8284cm+12cm-2cm,2.8284cm) circle (4pt); % point 2
+    \draw[red,fill=red] (3.6955cm+18cm-3cm,1.5307cm) circle (4pt); % point 3
+    \draw[red,fill=red] (24,0) circle (4pt) node[below,color=black] {$l$}; % point demi-largeur
+
+    \draw[blue] (0,4) .. controls (1.5307cm+6cm-1cm,4cm) and (2.8284cm+12cm-2cm,3.4cm) .. (24,0);
+
+  \end{tikzpicture}
+
+\end{document}
